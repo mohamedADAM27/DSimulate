@@ -1,0 +1,6 @@
+{
+  "name": "DSimulate — Physics-Informed Battery Digital Twin",
+  "description": "Engineering-grade digital twin for data-driven state estimation, degradation prognostics, RUL prediction, and intelligent BMS diagnostics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
