@@ -71,7 +71,9 @@ export const WorkspaceRibbon: React.FC = () => {
                   : 'border-transparent text-[#5E666D] hover:text-[#20252A] hover:bg-[#F7F8F9]'
               }`}
             >
-              <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#005B91]' : 'text-[#7A8289]'}`} />
+              {tab.id !== 'intervention-intelligence' && (
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#005B91]' : 'text-[#7A8289]'}`} />
+              )}
               <span>{tab.label}</span>
               {tab.id === 'intervention-intelligence' && (
                 <span className={`px-1 py-0.1 text-[8px] font-black uppercase tracking-wider border ${

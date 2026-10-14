@@ -12,9 +12,7 @@ import {
   ShieldCheck, 
   AlertTriangle, 
   FolderTree, 
-  Zap, 
-  Layers,
-  Cpu 
+  Layers
 } from 'lucide-react';
 
 export const HeaderBar: React.FC = () => {
@@ -81,7 +79,6 @@ export const HeaderBar: React.FC = () => {
           }`}
           title="Open Intervention Intelligence — Vertical AI engineering workspace"
         >
-          <Cpu className="w-3.5 h-3.5 text-[#38BDF8]" />
           <span className="hidden md:inline font-mono text-[10.5px]">Intervention Intel</span>
           <span className="px-1 py-0.2 bg-[#38BDF8] text-[#003B5C] text-[8.5px] font-black uppercase">AI</span>
         </button>
@@ -92,7 +89,6 @@ export const HeaderBar: React.FC = () => {
           className="flex items-center gap-1.5 px-2.5 py-1 rounded-[2px] bg-[#004B78] hover:bg-[#004169] border border-white/25 text-white font-semibold transition-all cursor-pointer shadow-2xs hover:border-[#7DD3FC]"
           title="Connect new battery, change vehicle model, or configure data telemetry stream"
         >
-          <Zap className="w-3.5 h-3.5 text-[#38BDF8]" />
           <span className="hidden sm:inline">Connect / Initialize Battery</span>
           <span className="sm:hidden">Init</span>
         </button>

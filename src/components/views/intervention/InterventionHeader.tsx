@@ -9,11 +9,7 @@ import {
   InterventionInvestigation 
 } from '../../../types/intervention';
 import { 
-  Cpu, 
   Activity, 
-  Save, 
-  FileDown, 
-  Plus, 
   RefreshCw,
   FolderGit2
 } from 'lucide-react';
@@ -72,9 +68,6 @@ export const InterventionHeader: React.FC<InterventionHeaderProps> = ({
       {/* Title & Active Case Context */}
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-[#005B91] border-2 border-white flex items-center justify-center font-bold shadow-[2px_2px_0px_#000]">
-            <Cpu className="w-4 h-4 text-[#38BDF8]" />
-          </div>
           <div>
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-[13px] tracking-wider uppercase text-white font-mono">
@@ -139,35 +132,32 @@ export const InterventionHeader: React.FC<InterventionHeaderProps> = ({
         {/* Action: New Investigation */}
         <button
           onClick={onNewInvestigation}
-          className="flex items-center gap-1 bg-[#F4F5F6] text-[#20252A] hover:bg-white border-2 border-black px-2.5 py-1 font-mono font-bold text-[10.5px] uppercase shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
+          className="flex items-center bg-[#F4F5F6] text-[#20252A] hover:bg-white border-2 border-black px-3 py-1 font-mono font-bold text-[10.5px] uppercase shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
           title="Create a new intervention case from current Digital Twin snapshot"
         >
-          <Plus className="w-3.5 h-3.5 text-[#005B91]" />
-          <span className="hidden md:inline">New Case</span>
+          <span className="inline">New Case</span>
         </button>
 
         {/* Action: Save Investigation */}
         <button
           onClick={onSaveInvestigation}
-          className={`flex items-center gap-1 border-2 border-black px-2.5 py-1 font-mono font-bold text-[10.5px] uppercase shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer ${
+          className={`flex items-center border-2 border-black px-3 py-1 font-mono font-bold text-[10.5px] uppercase shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer ${
             hasUnsavedChanges
               ? 'bg-[#D97706] text-white hover:bg-[#B45309]'
               : 'bg-[#005B91] text-white hover:bg-[#0072A8]'
           }`}
           title="Persist investigation state to local storage"
         >
-          <Save className="w-3.5 h-3.5" />
-          <span className="hidden md:inline">{hasUnsavedChanges ? 'Save *' : 'Save'}</span>
+          <span className="inline">{hasUnsavedChanges ? 'Save *' : 'Save'}</span>
         </button>
 
         {/* Action: Export Report PDF */}
         <button
           onClick={handleExportPdf}
-          className="flex items-center gap-1 bg-[#20252A] text-white hover:bg-black border-2 border-black px-2.5 py-1 font-mono font-bold text-[10.5px] uppercase shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
+          className="flex items-center bg-[#20252A] text-white hover:bg-black border-2 border-black px-3 py-1 font-mono font-bold text-[10.5px] uppercase shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
           title="Download formal engineering PDF investigation dossier"
         >
-          <FileDown className="w-3.5 h-3.5 text-[#38BDF8]" />
-          <span className="hidden xl:inline">Export PDF</span>
+          <span className="inline">Export PDF</span>
         </button>
 
         {/* Action: Export JSON */}
