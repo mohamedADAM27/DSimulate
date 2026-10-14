@@ -20,7 +20,9 @@ import {
   Sliders, 
   GitCompare, 
   FileText, 
-  Info 
+  Info,
+  Cpu,
+  Truck 
 } from 'lucide-react';
 
 interface TabItem {
@@ -38,6 +40,8 @@ const TABS: TabItem[] = [
   { id: 'degradation', label: 'Degradation', icon: TrendingDown },
   { id: 'rul', label: 'RUL Prediction', icon: Clock },
   { id: 'diagnostics', label: 'BMS Diagnostics', icon: AlertOctagon },
+  { id: 'fleet-intelligence', label: 'Fleet Intelligence', icon: Truck },
+  { id: 'intervention-intelligence', label: 'Intervention Intel · AI', icon: Cpu },
   { id: 'what-if', label: 'What-If Lab', icon: Sliders },
   { id: 'comparison', label: 'Comparison', icon: GitCompare },
   { id: 'results', label: 'Results', icon: FileText },
@@ -69,6 +73,20 @@ export const WorkspaceRibbon: React.FC = () => {
             >
               <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#005B91]' : 'text-[#7A8289]'}`} />
               <span>{tab.label}</span>
+              {tab.id === 'intervention-intelligence' && (
+                <span className={`px-1 py-0.1 text-[8px] font-black uppercase tracking-wider border ${
+                  isActive ? 'bg-[#003B5C] text-[#38BDF8] border-black' : 'bg-[#DCECF6] text-[#003B5C] border-[#005B91]'
+                }`}>
+                  SLM
+                </span>
+              )}
+              {tab.id === 'fleet-intelligence' && (
+                <span className={`px-1 py-0.1 text-[8px] font-black uppercase tracking-wider border ${
+                  isActive ? 'bg-[#B91C1C] text-white border-black' : 'bg-[#FEF2F2] text-[#B91C1C] border-[#F87171]'
+                }`}>
+                  ASIL-D
+                </span>
+              )}
               {isDiagnosticsTab && activeAlerts > 0 && (
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D97706] ml-0.5"></span>
               )}

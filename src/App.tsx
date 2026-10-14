@@ -24,6 +24,7 @@ import { WhatIfView } from './components/views/WhatIfView';
 import { ComparisonView } from './components/views/ComparisonView';
 import { ResultsView } from './components/views/ResultsView';
 import { OverviewView } from './components/views/OverviewView';
+import { InterventionIntelligenceView } from './components/views/InterventionIntelligenceView';
 
 export default function App() {
   const { currentWorkspace, isInitializingBattery, setIsInitializingBattery } = useBatteryStore();
@@ -110,6 +111,8 @@ export default function App() {
         return <ComparisonView />;
       case 'results':
         return <ResultsView />;
+      case 'intervention-intelligence':
+        return <InterventionIntelligenceView />;
       case 'overview':
       default:
         return <OverviewView />;

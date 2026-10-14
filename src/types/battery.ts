@@ -110,10 +110,12 @@ export type WorkspaceTab =
   | 'degradation'
   | 'rul'
   | 'diagnostics'
+  | 'fleet-intelligence'
   | 'what-if'
   | 'comparison'
   | 'results'
-  | 'overview';
+  | 'overview'
+  | 'intervention-intelligence';
 
 export interface SimulationParams {
   initialSoc: number;          // % (0 - 100)

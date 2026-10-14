@@ -13,7 +13,8 @@ import {
   AlertTriangle, 
   FolderTree, 
   Zap, 
-  Layers 
+  Layers,
+  Cpu 
 } from 'lucide-react';
 
 export const HeaderBar: React.FC = () => {
@@ -23,7 +24,9 @@ export const HeaderBar: React.FC = () => {
     selectObject, 
     activeDataSource, 
     activeVehicleInfo,
-    setIsInitializingBattery 
+    setIsInitializingBattery,
+    setWorkspace,
+    currentWorkspace 
   } = useBatteryStore();
 
   const activeWarnings = diagnosticEvents.filter(e => e.status === 'ACTIVE' && e.severity === 'WARNING').length;
@@ -68,6 +71,21 @@ export const HeaderBar: React.FC = () => {
 
       {/* Right Controls & Telemetry Status */}
       <div className="flex items-center gap-2.5 text-[11px]">
+        {/* Intervention Intelligence Direct Workspace Button */}
+        <button
+          onClick={() => setWorkspace('intervention-intelligence')}
+          className={`flex items-center gap-1.5 px-2.5 py-1 border font-bold transition-all cursor-pointer ${
+            currentWorkspace === 'intervention-intelligence'
+              ? 'bg-[#38BDF8] text-[#003B5C] border-white shadow-[2px_2px_0px_#000]'
+              : 'bg-[#003B5C] hover:bg-[#00273D] border-[#38BDF8]/60 text-white hover:border-[#38BDF8]'
+          }`}
+          title="Open Intervention Intelligence — Vertical AI engineering workspace"
+        >
+          <Cpu className="w-3.5 h-3.5 text-[#38BDF8]" />
+          <span className="hidden md:inline font-mono text-[10.5px]">Intervention Intel</span>
+          <span className="px-1 py-0.2 bg-[#38BDF8] text-[#003B5C] text-[8.5px] font-black uppercase">AI</span>
+        </button>
+
         {/* Initialize / Switch Battery System Button */}
         <button
           onClick={() => setIsInitializingBattery(true)}

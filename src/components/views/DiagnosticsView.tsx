@@ -11,17 +11,21 @@ import {
   AlertTriangle, 
   CheckCircle2, 
   ShieldAlert, 
+  ShieldCheck,
   ArrowRight, 
   Zap, 
   Thermometer, 
   Eye, 
   Box, 
   Layers,
-  Filter
+  Filter,
+  Cpu
 } from 'lucide-react';
+import { interventionService } from '../../services/interventionService';
 
 export const DiagnosticsView: React.FC = () => {
   const { 
+    batteryPack,
     diagnosticEvents, 
     selectedDiagnosticId, 
     selectDiagnostic, 
@@ -247,10 +251,22 @@ export const DiagnosticsView: React.FC = () => {
               {/* One-Click 3D Digital Twin Navigation */}
               <button
                 onClick={() => handleFocus3D(selectedEvent)}
-                className="w-full py-2 bg-[#005B91] hover:bg-[#004B78] text-white font-semibold text-[11px] rounded-[2px] flex items-center justify-center gap-1.5 transition-colors font-sans shadow-xs"
+                className="w-full py-2 bg-[#005B91] hover:bg-[#004B78] text-white font-semibold text-[11px] rounded-[2px] flex items-center justify-center gap-1.5 transition-colors font-sans shadow-xs cursor-pointer"
               >
                 <Box className="w-3.5 h-3.5" />
                 <span>Synchronize & Highlight Component in 3D View</span>
+              </button>
+
+              {/* Launch Intervention Intelligence Investigation */}
+              <button
+                onClick={() => {
+                  interventionService.createNewInvestigation(batteryPack, selectedEvent);
+                  setWorkspace('intervention-intelligence');
+                }}
+                className="w-full py-2 bg-[#003B5C] hover:bg-[#00273D] text-[#38BDF8] hover:text-white font-mono font-bold text-[11px] border-2 border-black flex items-center justify-center gap-2 transition-all shadow-[2px_2px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+              >
+                <Cpu className="w-3.5 h-3.5 text-[#38BDF8]" />
+                <span>Investigate Anomaly in Intervention Intelligence (SLM) →</span>
               </button>
             </div>
           </div>
